@@ -1,0 +1,5 @@
+node_modules/
+out/
+logs/*.json
+logs/*.tex
+!logs/.gitkeep

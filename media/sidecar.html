@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src {{cspSource}} 'unsafe-inline'; script-src 'nonce-{{nonce}}';"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ambient AI Sidecar</title>
+    <link rel="stylesheet" href="{{stylesUri}}" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Ambient AI Sidecar</p>
+          <h1>On-demand study sidecar</h1>
+        </div>
+        <span class="badge">v1 prototype</span>
+      </header>
+
+      <div id="status-banner" class="status-banner is-hidden" role="status"></div>
+
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Section 1</p>
+            <h2>Context Preview</h2>
+          </div>
+          <div class="meta">
+            <span id="file-name">No selection</span>
+            <span id="line-range">Select code to begin</span>
+          </div>
+        </div>
+
+        <div id="warning-banner" class="warning-banner is-hidden">
+          <strong>Potential sensitive content detected.</strong>
+          <p id="warning-copy"></p>
+        </div>
+
+        <label class="field-label" for="preview-text">Selected code</label>
+        <textarea id="preview-text" spellcheck="false" aria-label="Selected code preview"></textarea>
+
+        <div class="button-row">
+          <button id="remove-sensitive-button" class="ghost-button" type="button">
+            Remove Sensitive
+          </button>
+          <button id="send-button" class="primary-button" type="button">Send</button>
+        </div>
+      </section>
+
+      <section id="reasoning-section" class="panel is-hidden">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Section 2</p>
+            <h2>Structured Reasoning</h2>
+          </div>
+        </div>
+
+        <div id="loading-card" class="loading-card is-hidden">
+          <div class="spinner" aria-hidden="true"></div>
+          <p id="loading-copy">Working...</p>
+        </div>
+
+        <div id="reasoning-content" class="is-hidden">
+          <ol id="reasoning-steps" class="step-list"></ol>
+
+          <div class="verify-card">
+            <h3>Verify It</h3>
+            <ul id="verify-list"></ul>
+          </div>
+
+          <div class="button-row">
+            <button id="check-rubric-button" class="primary-button" type="button">
+              Check Rubric
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="rubric-section" class="panel is-hidden">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Section 3</p>
+            <h2>Course Alignment</h2>
+          </div>
+        </div>
+
+        <p id="rubric-name" class="rubric-name"></p>
+        <ul id="rubric-items" class="rubric-list"></ul>
+        <p id="rubric-summary" class="rubric-summary"></p>
+      </section>
+
+      <section id="final-section" class="panel is-hidden">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Section 4</p>
+            <h2>Final Action</h2>
+          </div>
+        </div>
+
+        <p class="final-copy">Use Export LaTeX to generate a study artifact, or mark the answer ready.</p>
+        <div class="button-row">
+          <button id="export-button" class="ghost-button" type="button">Export LaTeX</button>
+          <button id="mark-ready-button" class="primary-button" type="button">Mark Ready</button>
+        </div>
+        <p id="export-path" class="export-path"></p>
+      </section>
+    </main>
+
+    <script nonce="{{nonce}}" src="{{scriptUri}}"></script>
+  </body>
+</html>

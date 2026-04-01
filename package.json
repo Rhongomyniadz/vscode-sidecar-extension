@@ -1,0 +1,37 @@
+{
+  "name": "ambient-ai-sidecar",
+  "displayName": "Ambient AI Sidecar",
+  "description": "A deterministic VS Code sidecar prototype for an Ambient AI study workflow.",
+  "version": "0.0.1",
+  "publisher": "local-study",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:ambientAI.openSidecar"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ambientAI.openSidecar",
+        "title": "Ambient AI: Open Sidecar"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -w -p ./",
+    "test": "npm run compile && node --test out/test"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "@types/vscode": "^1.87.0",
+    "typescript": "^5.4.5"
+  }
+}
